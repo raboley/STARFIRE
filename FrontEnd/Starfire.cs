@@ -1920,62 +1920,129 @@ namespace STARFIRE.FrontEnd
 
         private void Resource1_Teleport_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Attempt to read the X, Y, and Z coordinates of resource 1 from memory
-                float resource1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X);
-                float resource1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y);
-                float resource1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z);
 
-                // Check if the X coordinate is valid (non-zero or negative)
-                if (resource1_X < 0 || resource1_X != 0)
-                {
-                    // Update the player's location to resource 1 coordinates
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource1_X.ToString(CultureInfo.InvariantCulture));
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource1_Y.ToString(CultureInfo.InvariantCulture));
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource1_Z.ToString(CultureInfo.InvariantCulture));
-                }
-                else
-                {
-                    // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Resource 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
+            if (true)
             {
-                // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Resource 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    // Attempt to read the X, Y, and Z coordinates of resource 1 from memory
+                    float resource1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X);
+                    float resource1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y);
+                    float resource1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z);
+
+                    // Check if the X coordinate is valid (non-zero or negative)
+                    if (resource1_X < 0 || resource1_X != 0)
+                    {
+                        // Update the player's location to resource 1 coordinates
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource1_X.ToString(CultureInfo.InvariantCulture));
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource1_Y.ToString(CultureInfo.InvariantCulture));
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource1_Z.ToString(CultureInfo.InvariantCulture));
+                    }
+                    else
+                    {
+                        // Show a message if the X coordinate is invalid
+                        MessageBox.Show("Invalid Resource 1 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions that occur during the memory read/write operations
+                    MessageBox.Show($"Error teleporting to Resource 1: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            else
+            {
+                try
+                {
+                    // Attempt to read the X, Y, and Z coordinates of resource 1 from memory
+                    float resource1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X);
+                    float resource1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y);
+                    float resource1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z);
+                    if (resource1_X > 0)
+                    {
+                        Console.WriteLine("Error location is not corret");
+                        return;
+                    }
+
+                    float player_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X);
+                    float player_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y);
+                    float player_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z);
+
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X, "float", player_X.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y, "float", player_Y.ToString(CultureInfo.InvariantCulture));
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z, "float", player_Z.ToString(CultureInfo.InvariantCulture));
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+
         }
 
         private void Resource2_Teleport_Click(object sender, EventArgs e)
         {
-            try
+            if (false)
             {
-                // Attempt to read the X, Y, and Z coordinates of the resource 2 from memory
-                float resource2_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_X);
-                float resource2_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_Y);
-                float resource2_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_Z);
+                try
+                {
+                    // Attempt to read the X, Y, and Z coordinates of the resource 2 from memory
+                    float resource2_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_X);
+                    float resource2_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_Y);
+                    float resource2_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation2_Z);
 
-                // Check if the X coordinate is valid (non-zero or negative)
-                if (resource2_X < 0 || resource2_X != 0)
-                {
-                    // Update the player's location to resource 2 coordinates
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource2_X.ToString(CultureInfo.InvariantCulture));
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource2_Y.ToString(CultureInfo.InvariantCulture));
-                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource2_Z.ToString(CultureInfo.InvariantCulture));
+                    // Check if the X coordinate is valid (non-zero or negative)
+                    if (resource2_X < 0 || resource2_X != 0)
+                    {
+                        // Update the player's location to resource 2 coordinates
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X, "float", resource2_X.ToString(CultureInfo.InvariantCulture));
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y, "float", resource2_Y.ToString(CultureInfo.InvariantCulture));
+                        M.WriteMemory(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z, "float", resource2_Z.ToString(CultureInfo.InvariantCulture));
+                    }
+                    else
+                    {
+                        // Show a message if the X coordinate is invalid
+                        MessageBox.Show("Invalid Resource 2 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    // Show a message if the X coordinate is invalid
-                    MessageBox.Show("Invalid Resource 2 X coordinate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Handle any exceptions that occur during the memory read/write operations
+                    MessageBox.Show($"Error teleporting to Resource 2: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                // Handle any exceptions that occur during the memory read/write operations
-                MessageBox.Show($"Error teleporting to Resource 2: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    // Attempt to read the X, Y, and Z coordinates of resource 1 from memory
+                    float resource1_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X);
+                    float resource1_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y);
+                    float resource1_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z);
+
+
+                    float player_X = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_X);
+                    float player_Y = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Y);
+                    float player_Z = M.ReadFloat(UBrgUIManager.ABrgGameInfoNative.ABrgPawn_Base.PlayerBase.Location_Z);
+
+                    string x = player_X.ToString(CultureInfo.InvariantCulture);
+                    string y = player_Y.ToString(CultureInfo.InvariantCulture);
+                    string z = player_Z.ToString(CultureInfo.InvariantCulture);
+
+
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_X, "float", x);
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Y, "float", y);
+                    M.WriteMemory(UBrgUIManager.ABrgGameInfoNativeBase.MaterialLocations.MaterialLocation1_Z, "float", z);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
+
+
+
         }
         private void Resource3_Teleport_Click(object sender, EventArgs e)
         {
